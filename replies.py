@@ -1,24 +1,24 @@
-start_reply = "Hi, send me some channels with the <code>/add</code> command. For example:\n\n<code>/add @techmind - all about tech</code>"
-help_reply = """These are the commands you can use:
+start_reply = "Salut, envoie-moi des chaînes avec la commande <code>/add</code>. Par exemple :\n\n<code>/add @techmind - tout sur la technologie</code>"
+help_reply = """Voici les commandes que tu peux utiliser :
 
-<code>/start</code> - display start message
-<code>/help</code> - display helpful message
-<code>/add @channel - description</code> - add a channel
+<code>/start</code> - afficher le message de bienvenue  
+<code>/help</code> - afficher un message d'aide  
+<code>/add @channel - description</code> - ajouter une chaîne  
 """
 
-#SERVICE RESPONSES
-success_add = "{0} was successfully added to the list!"
-trunc_list = "The list has been truncated."
-terminate_bot = "Bot has been terminated."
-size_set = "Minimum channel size has been set to {0} members."
-ban_member = "@{0} has been banned."
+# RÉPONSES DU SERVICE  
+success_add = "{0} a été ajouté avec succès à la liste !"  
+trunc_list = "La liste a été tronquée."  
+terminate_bot = "Le bot a été arrêté."  
+size_set = "La taille minimale de la chaîne a été définie à {0} membres."  
+ban_member = "@{0} a été banni."  
 
-#ERRORS
-enter_chan = "Please enter a channel."
-long_name = "The name is too long."
-no_chans = "No channels are available."
-admin_only = "This is an admin-only command."
-small_chan = "Your channel is too small. The minimum size is {0}."
-size_set_error = "Please enter a number after this command."
-enter_desc_error = "Please enter a description after this command."
-enter_addmessage_error = "Please enter a channel name and description after this command. Click /start for an example."
+# ERREURS  
+enter_chan = "Veuillez entrer une chaîne."  
+long_name = "Le nom est trop long."  
+no_chans = "Aucune chaîne disponible."  
+admin_only = "Cette commande est réservée aux administrateurs."  
+small_chan = "Votre chaîne est trop petite. La taille minimale est de {0}."  
+size_set_error = "Veuillez entrer un nombre après cette commande."  
+enter_desc_error = "Veuillez entrer une description après cette commande."  
+enter_addmessage_error = "Veuillez entrer un nom de chaîne et une description après cette commande. Clique sur /start pour un exemple."  
