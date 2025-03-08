@@ -1,3 +1,10 @@
-TOKEN = "YOUR TOKEN HERE"
+import os
 
-CHAT_ID = [LIST OF ADMIN IDs] # e.g. [1234567, 2233445, 3466123...]
+# Charger les variables d'environnement
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+MONGO_URI = os.getenv("MONGO_URI")
+ADMIN_ID = os.getenv("ADMIN_ID")
