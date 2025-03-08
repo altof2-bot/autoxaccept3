@@ -1,5 +1,4 @@
 python-dotenv
 pymongo
-gridfs
 ffmpeg-python
 python-telegram-bot
