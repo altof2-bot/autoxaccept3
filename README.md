@@ -1,28 +1,14 @@
-# cross-prom
-cross-prom is a service for cross-promotions in telegram. It can collect channels into a list, and output all of them into one message. It has a system of filtering.
-IN DEVELOPMENT
+# Telegram Bot
 
+Un bot Telegram en Python qui permet de compresser des vidéos avec différentes qualités. Ce bot est conçu pour être hébergé sur Replit et inclut un panneau d'administration avec des fonctionnalités avancées.
 
-## Installation
-Install all of the required dependencies for this project by running:  
-`pip install -r requirements.txt`
+## Fonctionnalités
+- Compression de vidéos (faible, moyenne, haute qualité)
+- Stockage des vidéos compressées
+- Panneau d'administration
+- Statistiques et gestion des utilisateurs
 
-
-## Deploy your bot
-Start a chat with [BotFather](https://t.me/BotFather) in Telegram and get an API token. Once you've done that, input both the API token and your user ID (double check, because the person with this ID will have all administrative privileges) and put them into the `config.py` file.
-
-
-## Bot commands
-This is a list of commands that can be used with the bot
-### Default:
-`/start` - display helpful message  
-`/help` - display link to source code
-
-### User:
-`/add @CHANNELNAME - DESCRIPTION` - add a channel
-
-### Administrator
-`/list` - display the channel list  
-`/clear` - truncate the list  
-`/setsize INTEGER` - set the minimum limit for the number of channels  
-`/stop` - stop polling the bot  
+## Déploiement
+1. Clonez le dépôt : `git clone <url-du-dépôt>`
+2. Installez les dépendances : `pip install -r requirements.txt`
+3. Lancez le bot : `python bot.py`
