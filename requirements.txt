@@ -1,4 +1,2 @@
-python-dotenv
-pymongo
-ffmpeg-python
 python-telegram-bot
+flask
