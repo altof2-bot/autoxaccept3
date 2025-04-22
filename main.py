@@ -80,8 +80,12 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     msg = " ".join(context.args)
     users = load_users()
-    count = 0
 
+    if not users:
+        await update.message.reply_text("Aucun utilisateur enregistré pour le broadcast.")
+        return
+
+    count = 0
     for user_id in users:
         try:
             await context.bot.send_message(chat_id=user_id, text=msg)
@@ -109,7 +113,8 @@ async def sponsor(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await asyncio.sleep(1800)
         try:
             await context.bot.delete_message(chat_id=chat_id, message_id=message_id)
-        except:
+        except Exception as e:
+            print(f"Erreur lors de la suppression du message : {e}")
             pass
 
     asyncio.create_task(delete_later(sent.chat_id, sent.message_id))
