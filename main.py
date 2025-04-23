@@ -3,7 +3,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, ChatJoinRe
 from keep_alive import keep_alive
 
 TOKEN = "7733018409:AAEbDTiRTrs4Os7ZQUzaAVCPS-7QFG9mwTs"
-ADMIN_IDS = [7886987683, 5116530698]  
+ADMIN_IDS = [7886987683, 5116530698]
 USER_LIST = set()  # Stocker les utilisateurs sous forme d'ensemble pour éviter les doublons
 
 async def start(update: Update, context):
@@ -23,7 +23,7 @@ async def start(update: Update, context):
         reply_markup=reply_markup
     )
 
-async def send_message_to_all(update: Update, context):
+async def broadcast_message(update: Update, context):
     if update.effective_user.id in ADMIN_IDS:
         if USER_LIST:
             for user_id in USER_LIST:
@@ -40,6 +40,7 @@ async def send_message_to_all(update: Update, context):
 async def view_stats(update: Update, context):
     if update.effective_user.id in ADMIN_IDS:
         total_users = len(USER_LIST)
+        print(f"Liste des utilisateurs : {USER_LIST}")  # Ajout d'un log pour le diagnostic
         await update.message.reply_text(f"📊 Nombre total d'utilisateurs : {total_users}")
     else:
         await update.message.reply_text("🚫 Vous n'avez pas accès à cette commande.")
@@ -61,7 +62,9 @@ async def auto_accept_channel(update: Update, context):
 
 async def track_new_users(update: Update, context):
     user_id = update.effective_user.id
-    USER_LIST.add(user_id)
+    if user_id not in USER_LIST:
+        USER_LIST.add(user_id)
+        print(f"Utilisateur ajouté : {user_id}")  # Confirmation dans le log
 
 def main():
     keep_alive()
@@ -70,7 +73,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, track_new_users))
     app.add_handler(ChatJoinRequestHandler(auto_accept_channel))
-    app.add_handler(CommandHandler("send_all", send_message_to_all))
+    app.add_handler(CommandHandler("broadcast", broadcast_message))  # Renommé en "broadcast"
     app.add_handler(CommandHandler("view_stats", view_stats))
 
     app.run_polling()
